@@ -1,0 +1,17 @@
+require 'Native'
+
+module INotify
+	class Notifier
+		attr_reader :watchers
+		attr_reader :fd
+		
+		def initialize
+			@fd = Native.inotify_init
+			@watchers = {}
+			return unless @fd < 0
+			puts "Some Error occured in initializing notifier."
+		end
+		
+		def 
+	end
+end

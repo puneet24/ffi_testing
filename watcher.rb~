@@ -1,0 +1,22 @@
+module INotify
+	class Watcher
+		attr_reader :notifier
+		attr_reader :name
+		attr_reader :flags
+		attr_reader :block
+		
+		def initialize(notifier, path, *flags, &block)
+      @notifier = notifier
+      @block = callback || proc {}
+      @path = path
+      @flags = flags.freeze
+      @id = Native.inotify_add_watch(@notifier.fd, path.dup,
+        Native::Flags.to_mask(flags))
+
+      unless @id < 0
+        @notifier.watchers[@id] = self
+        return
+      end
+    end
+	end
+end
