@@ -120,7 +120,7 @@ end
 fd = Native.inotify_init
 
 
-wd = Native.inotify_add_watch(fd,"/home/puneet/ffi/helper.rb",Flags::IN_ALL_EVENTS)
+wd = Native.inotify_add_watch(fd,"/home/puneet/ffi/README.txt",Flags::IN_ALL_EVENTS)
 
 puts wd
 
