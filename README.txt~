@@ -6,7 +6,7 @@ Delete this file from from CLI and observe the notification fired from freespeed
 
 Results:-
 
-1) In first case no event will be fired.
+1) In first case [:move_self] event on README.txt will be fired.
 
 2) In second case [:attrib] event on README.txt will be fired.
 
